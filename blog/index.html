@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Wendy de Vries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+            line-height: 1.7;
+        }
+        .container { max-width: 700px; margin: 0 auto; padding: 60px 20px; }
+        nav { margin-bottom: 40px; }
+        nav a { color: #00d9ff; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .post-list { list-style: none; }
+        .post-item {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .post-item h2 { font-size: 1.3rem; margin-bottom: 8px; }
+        .post-item h2 a { color: #e8e8e8; text-decoration: none; }
+        .post-item h2 a:hover { color: #00d9ff; }
+        .post-meta { font-size: 0.85rem; color: #666; margin-bottom: 12px; }
+        .post-excerpt { color: #a0a0a0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="/">← Home</a></nav>
+        <h1>Blog</h1>
+        <ul class="post-list">
+            <li class="post-item">
+                <h2><a href="/blog/2026-01-29-new-chapter.html">A New Chapter</a></h2>
+                <div class="post-meta">January 29, 2026</div>
+                <p class="post-excerpt">After years of writing for others, I finally have my own corner of the internet. Here's what I'm planning...</p>
+            </li>
+            <li class="post-item">
+                <h2><a href="/blog/2026-01-29-why-decentralization-matters.html">Why Decentralization Still Matters in 2026</a></h2>
+                <div class="post-meta">January 29, 2026</div>
+                <p class="post-excerpt">The crypto hype cycles come and go, but the core principles remain. Here's why I still believe...</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
