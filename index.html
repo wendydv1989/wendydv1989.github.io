@@ -193,3 +193,24 @@
     </div>
 </body>
 </html>
+
+<!-- Donation section - added before closing container -->
+<script>
+// Insert donation section before footer
+document.addEventListener('DOMContentLoaded', function() {
+    const footer = document.querySelector('.footer');
+    const donateSection = document.createElement('section');
+    donateSection.className = 'section';
+    donateSection.innerHTML = `
+        <h2>Support My Work</h2>
+        <p>If you find my writing valuable, you can buy me a coffee (or some sats).</p>
+        <div style="margin-top: 20px; font-family: monospace; font-size: 0.85rem;">
+            <p style="margin-bottom: 12px;"><strong style="color: #f7931a;">₿ Bitcoin:</strong><br>
+            <code style="background: rgba(255,255,255,0.05); padding: 8px 12px; border-radius: 4px; display: inline-block; margin-top: 4px; word-break: break-all;">1HnVzq6hPMRY2Cq26mZXe3QAxU27D4AUZ1</code></p>
+            <p><strong style="color: #627eea;">Ξ Ethereum:</strong><br>
+            <code style="background: rgba(255,255,255,0.05); padding: 8px 12px; border-radius: 4px; display: inline-block; margin-top: 4px; word-break: break-all;">0xC74EcAbFfc7c5E375978cC301531a50f47dD0285</code></p>
+        </div>
+    `;
+    footer.parentNode.insertBefore(donateSection, footer);
+});
+</script>
