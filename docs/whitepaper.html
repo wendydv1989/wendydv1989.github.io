@@ -111,7 +111,9 @@
         }
         
         .token-box h3 { color: #00ff88; margin-top: 0; }
-        .token-box code { color: #00d9ff; background: rgba(0,217,255,0.1); padding: 2px 8px; border-radius: 4px; }
+        .token-box p { color: #e8e8e8; margin-bottom: 12px; }
+        .token-box strong { color: #00d9ff; }
+        .token-box code { color: #00ff88; background: rgba(0,255,136,0.15); padding: 2px 8px; border-radius: 4px; }
         
         .stats {
             display: grid;
@@ -251,7 +253,7 @@
     
     <div class="token-box">
         <h3>Token Details</h3>
-        <p><strong>Name:</strong> Wendy Share Token</p>
+        <p style="color:#fff;"><strong style="color:#00ff88;">Name:</strong> Wendy Share Token</p>
         <p><strong>Symbol:</strong> $WENDY</p>
         <p><strong>Network:</strong> Polygon</p>
         <p><strong>Total Supply:</strong> 1,000,000 WENDY</p>
@@ -276,7 +278,14 @@
         <strong>Wallet:</strong> <code style="font-size:0.9rem;">0xC74EcAbFfc7c5E375978cC301531a50f47dD0285</code>
     </div>
     
-    <p><strong>Accepted:</strong> USDC, ETH, MATIC/POL (Polygon network preferred)</p>
+    <p><strong>Accepted currencies:</strong></p>
+    <ul>
+        <li><strong>USDC</strong> (preferred - stablecoin)</li>
+        <li><strong>ETH</strong> (Ethereum or Polygon)</li>
+        <li><strong>POL/MATIC</strong> (Polygon native)</li>
+        <li><strong>DAI, USDT</strong> (stablecoins)</li>
+        <li><strong>BTC</strong> (via wrapped or separate address)</li>
+    </ul>
     <p><strong>Process:</strong></p>
     <ul>
         <li>Send crypto to the wallet above</li>
