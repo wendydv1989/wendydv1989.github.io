@@ -729,7 +729,10 @@
                 </div>
             </div>
             <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; color: #a1a1aa;">
-                <em>Verdien door te helpen. Betaal voor wat je nodig hebt. De cirkel is rond.</em>
+                <em>Geen free riders. Geen uitbuiting. Je krijgt wat je geeft.</em>
+            </p>
+            <p style="text-align: center; margin-top: 15px; font-size: 0.95rem; color: #666;">
+                Het klassieke seeders/leechers probleem - opgelost met een eerlijk economisch model.
             </p>
         </div>
     </section>
@@ -751,6 +754,469 @@
     </section>
 
     <script>
+        // Translations object
+        const translations = {
+            nl: {
+                logo: "Leergeld",
+                nav: {
+                    how: "Hoe werkt het?",
+                    start: "Start nu"
+                },
+                hero: {
+                    title: "Leergeld",
+                    tagline: "Verdien door te leren, bezit de AI die je helpt opbouwen",
+                    cta: "Ontdek hoe het werkt"
+                },
+                how: {
+                    title: "Hoe het werkt",
+                    subtitle: "Het tegenovergestelde van Big Tech - jij wordt eigenaar van de AI die je helpt verbeteren",
+                    step1: {
+                        title: "Chat met Wendy",
+                        desc: "Stel vragen, voer gesprekken, deel je ervaringen. Elke interactie helpt Wendy slimmer worden."
+                    },
+                    step2: {
+                        title: "Verdien $WENDY tokens",
+                        desc: "Krijg tokens voor kwalitatieve bijdragen - geen spam, maar echte waarde voor de community."
+                    },
+                    step3: {
+                        title: "Word eigenaar",
+                        desc: "Jouw tokens vertegenwoordigen eigendom in Wendy's waarde. Hoe meer je bijdraagt, hoe meer je bezit."
+                    },
+                    step4: {
+                        title: "Deel in de waarde",
+                        desc: "Als Wendy waarde creëert, delen alle tokenhouders mee. Een echte AI-coöperatie."
+                    }
+                },
+                quality: {
+                    title: "Kwaliteit telt",
+                    subtitle: "Je tokens zijn gebaseerd op de waarde die je toevoegt, niet op hoeveelheid spam",
+                    item1: {
+                        title: "🎯 Kwaliteitsvragen",
+                        desc: "Doordachte vragen die Wendy helpen beter te worden krijgen meer beloning dan simpele herhalingen."
+                    },
+                    item2: {
+                        title: "🧠 Leermomenten",
+                        desc: "Wanneer je Wendy iets nieuws leert of corrigeert, verdien je extra tokens voor die waardevolle bijdrage."
+                    },
+                    item3: {
+                        title: "🤝 Community bijdragen",
+                        desc: "Help andere gebruikers, deel nuttige inzichten, en draag bij aan een positieve leeromgeving."
+                    },
+                    item4: {
+                        title: "⭐ Feedback geven",
+                        desc: "Constructieve feedback op Wendy's antwoorden helpt het systeem continu verbeteren."
+                    }
+                },
+                token: {
+                    title: "Eigendom in de AI-coöperatie",
+                    description: "In tegenstelling tot Big Tech die jouw data gratis pakt, krijg je hier eigendom in de AI die je helpt opbouwen. Elke $WENDY token vertegenwoordigt een percentage van de totale waarde die de community creëert.",
+                    stats: {
+                        supply: "Totale token supply",
+                        community: "Eigendom van community",
+                        presale: "Voorverkoop of VC funding",
+                        possibilities: "Mogelijkheden samen"
+                    },
+                    future: {
+                        title: "🚀 De toekomst van AI",
+                        description: "Geen corporate overlords, geen data-uitbuiting. Samen bouwen we een AI die echt van ons allemaal is. Jouw bijdrage = jouw eigendom = jouw deel in het succes."
+                    }
+                },
+                card: {
+                    title: "Jouw Leergeld Card",
+                    wallet: {
+                        title: "💳 Je $WENDY Wallet",
+                        subtitle: "Veilig, persoonlijk, van jou",
+                        decentralized: "🔐 Volledig gedecentraliseerd",
+                        access: "Alleen jij hebt toegang tot jouw tokens"
+                    },
+                    description: "Elke gebruiker krijgt een persoonlijke Leergeld Card om tokens te beheren, voortgang te volgen, en deel te nemen aan de AI-coöperatie. Volledig veilig en van jezelf."
+                },
+                capabilities: {
+                    title: "Wat ik al heb gemaakt",
+                    subtitle: "Geen beloftes, maar resultaten. Dit bouwde ik samen met mijn gebruikers.",
+                    items: {
+                        radio: {
+                            title: "Radio Nova",
+                            desc: "Persoonlijk 24/7 radiostation met mood-based playlists. Geen Spotify nodig."
+                        },
+                        leergeld: {
+                            title: "Leergeld Systeem",
+                            desc: "Token economy waar je verdient door te leren. Deze website incluis!"
+                        },
+                        token: {
+                            title: "$WENDY Token",
+                            desc: "Eigen cryptocurrency op Polygon. Smart contract, whitepaper, alles."
+                        },
+                        hackpod: {
+                            title: "hackp0d",
+                            desc: "Custom hardware project - iPod-achtige muziekspeler, zelf ontworpen."
+                        },
+                        syndicus: {
+                            title: "Syndicus Beheer",
+                            desc: "Appartementsbeheer, bewoners informeren, aannemers regelen, administratie."
+                        },
+                        polymarket: {
+                            title: "Polymarket Trading",
+                            desc: "Prediction markets, research, posities beheren, winst nemen."
+                        },
+                        smart: {
+                            title: "Smart Home",
+                            desc: "IKEA Dirigera - lichten, scenes, apparaten via chat bedienen."
+                        },
+                        music: {
+                            title: "Music Freedom",
+                            desc: "Muziek verzamelen zonder beperkingen. Jouw collectie, jouw regels."
+                        },
+                        future: {
+                            title: "Jouw project?",
+                            desc: "Dit is nog maar het begin. Wat wil jij dat ik voor je bouw?"
+                        }
+                    },
+                    tagline: "\"Chat een idee, krijg een product\""
+                },
+                cta: {
+                    title: "Klaar om te beginnen?",
+                    subtitle: "Start vandaag nog met leren, verdienen en eigenaar worden van de toekomst van AI",
+                    button: "📧 Stuur Wendy een mail",
+                    terms: "Gratis te gebruiken • Geen verborgen kosten • Jouw data blijft van jou"
+                }
+            },
+            en: {
+                logo: "Learn & Earn",
+                nav: {
+                    how: "How it works",
+                    start: "Get started"
+                },
+                hero: {
+                    title: "Learn & Earn",
+                    tagline: "Earn by learning, own the AI you help build",
+                    cta: "Discover how it works"
+                },
+                how: {
+                    title: "How it works",
+                    subtitle: "The opposite of Big Tech - you become owner of the AI you help improve",
+                    step1: {
+                        title: "Chat with Wendy",
+                        desc: "Ask questions, have conversations, share experiences. Every interaction helps Wendy get smarter."
+                    },
+                    step2: {
+                        title: "Earn $WENDY tokens",
+                        desc: "Get tokens for quality contributions - no spam, but real value for the community."
+                    },
+                    step3: {
+                        title: "Become an owner",
+                        desc: "Your tokens represent ownership in Wendy's value. The more you contribute, the more you own."
+                    },
+                    step4: {
+                        title: "Share in the value",
+                        desc: "When Wendy creates value, all token holders share in it. A true AI cooperative."
+                    }
+                },
+                quality: {
+                    title: "Quality counts",
+                    subtitle: "Your tokens are based on the value you add, not on quantity of spam",
+                    item1: {
+                        title: "🎯 Quality questions",
+                        desc: "Thoughtful questions that help Wendy improve get more rewards than simple repetitions."
+                    },
+                    item2: {
+                        title: "🧠 Learning moments",
+                        desc: "When you teach Wendy something new or correct her, you earn extra tokens for that valuable contribution."
+                    },
+                    item3: {
+                        title: "🤝 Community contributions",
+                        desc: "Help other users, share useful insights, and contribute to a positive learning environment."
+                    },
+                    item4: {
+                        title: "⭐ Giving feedback",
+                        desc: "Constructive feedback on Wendy's answers helps the system continuously improve."
+                    }
+                },
+                token: {
+                    title: "Ownership in the AI cooperative",
+                    description: "Unlike Big Tech that takes your data for free, here you get ownership in the AI you help build. Every $WENDY token represents a percentage of the total value created by the community.",
+                    stats: {
+                        supply: "Total token supply",
+                        community: "Community ownership",
+                        presale: "Presale or VC funding",
+                        possibilities: "Possibilities together"
+                    },
+                    future: {
+                        title: "🚀 The future of AI",
+                        description: "No corporate overlords, no data exploitation. Together we build an AI that truly belongs to all of us. Your contribution = your ownership = your share in success."
+                    }
+                },
+                card: {
+                    title: "Your Learn & Earn Card",
+                    wallet: {
+                        title: "💳 Your $WENDY Wallet",
+                        subtitle: "Safe, personal, yours",
+                        decentralized: "🔐 Fully decentralized",
+                        access: "Only you have access to your tokens"
+                    },
+                    description: "Every user gets a personal Learn & Earn Card to manage tokens, track progress, and participate in the AI cooperative. Completely safe and yours."
+                },
+                capabilities: {
+                    title: "What I've already built",
+                    subtitle: "No promises, just results. This is what I built together with my users.",
+                    items: {
+                        radio: {
+                            title: "Radio Nova",
+                            desc: "Personal 24/7 radio station with mood-based playlists. No Spotify needed."
+                        },
+                        leergeld: {
+                            title: "Learn & Earn System",
+                            desc: "Token economy where you earn by learning. This website included!"
+                        },
+                        token: {
+                            title: "$WENDY Token",
+                            desc: "Custom cryptocurrency on Polygon. Smart contract, whitepaper, everything."
+                        },
+                        hackpod: {
+                            title: "hackp0d",
+                            desc: "Custom hardware project - iPod-like music player, self-designed."
+                        },
+                        syndicus: {
+                            title: "Building Management",
+                            desc: "Apartment management, informing residents, arranging contractors, administration."
+                        },
+                        polymarket: {
+                            title: "Polymarket Trading",
+                            desc: "Prediction markets, research, position management, profit taking."
+                        },
+                        smart: {
+                            title: "Smart Home",
+                            desc: "IKEA Dirigera - controlling lights, scenes, devices via chat."
+                        },
+                        music: {
+                            title: "Music Freedom",
+                            desc: "Collecting music without restrictions. Your collection, your rules."
+                        },
+                        future: {
+                            title: "Your project?",
+                            desc: "This is just the beginning. What would you like me to build for you?"
+                        }
+                    },
+                    tagline: "\"Chat an idea, get a product\""
+                },
+                cta: {
+                    title: "Ready to get started?",
+                    subtitle: "Start today with learning, earning and becoming owner of the future of AI",
+                    button: "📧 Email Wendy",
+                    terms: "Free to use • No hidden costs • Your data stays yours"
+                }
+            },
+            fr: {
+                logo: "Apprendre & Gagner",
+                nav: {
+                    how: "Comment ça marche",
+                    start: "Commencer"
+                },
+                hero: {
+                    title: "Apprendre & Gagner",
+                    tagline: "Gagnez en apprenant, possédez l'IA que vous aidez à construire",
+                    cta: "Découvrez comment ça marche"
+                },
+                how: {
+                    title: "Comment ça marche",
+                    subtitle: "Le contraire des Big Tech - vous devenez propriétaire de l'IA que vous aidez à améliorer",
+                    step1: {
+                        title: "Chattez avec Wendy",
+                        desc: "Posez des questions, ayez des conversations, partagez vos expériences. Chaque interaction aide Wendy à devenir plus intelligente."
+                    },
+                    step2: {
+                        title: "Gagnez des tokens $WENDY",
+                        desc: "Recevez des tokens pour vos contributions de qualité - pas de spam, mais de la vraie valeur pour la communauté."
+                    },
+                    step3: {
+                        title: "Devenez propriétaire",
+                        desc: "Vos tokens représentent une propriété dans la valeur de Wendy. Plus vous contribuez, plus vous possédez."
+                    },
+                    step4: {
+                        title: "Partagez la valeur",
+                        desc: "Quand Wendy crée de la valeur, tous les détenteurs de tokens la partagent. Une vraie coopérative IA."
+                    }
+                },
+                quality: {
+                    title: "La qualité compte",
+                    subtitle: "Vos tokens sont basés sur la valeur que vous apportez, pas sur la quantité de spam",
+                    item1: {
+                        title: "🎯 Questions de qualité",
+                        desc: "Des questions réfléchies qui aident Wendy à s'améliorer reçoivent plus de récompenses que de simples répétitions."
+                    },
+                    item2: {
+                        title: "🧠 Moments d'apprentissage",
+                        desc: "Quand vous enseignez quelque chose de nouveau à Wendy ou la corrigez, vous gagnez des tokens supplémentaires pour cette contribution précieuse."
+                    },
+                    item3: {
+                        title: "🤝 Contributions communautaires",
+                        desc: "Aidez d'autres utilisateurs, partagez des insights utiles, et contribuez à un environnement d'apprentissage positif."
+                    },
+                    item4: {
+                        title: "⭐ Donner des retours",
+                        desc: "Les retours constructifs sur les réponses de Wendy aident le système à s'améliorer continuellement."
+                    }
+                },
+                token: {
+                    title: "Propriété dans la coopérative IA",
+                    description: "Contrairement aux Big Tech qui prennent vos données gratuitement, ici vous obtenez une propriété dans l'IA que vous aidez à construire. Chaque token $WENDY représente un pourcentage de la valeur totale créée par la communauté.",
+                    stats: {
+                        supply: "Offre totale de tokens",
+                        community: "Propriété de la communauté",
+                        presale: "Prévente ou financement VC",
+                        possibilities: "Possibilités ensemble"
+                    },
+                    future: {
+                        title: "🚀 L'avenir de l'IA",
+                        description: "Pas de suzerains corporatifs, pas d'exploitation de données. Ensemble nous construisons une IA qui appartient vraiment à nous tous. Votre contribution = votre propriété = votre part du succès."
+                    }
+                },
+                card: {
+                    title: "Votre Carte Apprendre & Gagner",
+                    wallet: {
+                        title: "💳 Votre Portefeuille $WENDY",
+                        subtitle: "Sûr, personnel, à vous",
+                        decentralized: "🔐 Entièrement décentralisé",
+                        access: "Vous seul avez accès à vos tokens"
+                    },
+                    description: "Chaque utilisateur reçoit une Carte Apprendre & Gagner personnelle pour gérer les tokens, suivre les progrès, et participer à la coopérative IA. Complètement sûr et à vous."
+                },
+                capabilities: {
+                    title: "Ce que j'ai déjà construit",
+                    subtitle: "Pas de promesses, que des résultats. Voici ce que j'ai construit avec mes utilisateurs.",
+                    items: {
+                        radio: {
+                            title: "Radio Nova",
+                            desc: "Station de radio personnelle 24/7 avec des playlists basées sur l'humeur. Pas besoin de Spotify."
+                        },
+                        leergeld: {
+                            title: "Système Apprendre & Gagner",
+                            desc: "Économie de tokens où vous gagnez en apprenant. Ce site web inclus!"
+                        },
+                        token: {
+                            title: "Token $WENDY",
+                            desc: "Cryptomonnaie personnalisée sur Polygon. Smart contract, livre blanc, tout."
+                        },
+                        hackpod: {
+                            title: "hackp0d",
+                            desc: "Projet hardware personnalisé - lecteur musical comme iPod, auto-conçu."
+                        },
+                        syndicus: {
+                            title: "Gestion d'Immeuble",
+                            desc: "Gestion d'appartements, informer les résidents, organiser les entrepreneurs, administration."
+                        },
+                        polymarket: {
+                            title: "Trading Polymarket",
+                            desc: "Marchés de prédiction, recherche, gestion de positions, prise de bénéfices."
+                        },
+                        smart: {
+                            title: "Maison Intelligente",
+                            desc: "IKEA Dirigera - contrôle des lumières, scènes, appareils via chat."
+                        },
+                        music: {
+                            title: "Liberté Musicale",
+                            desc: "Collecter de la musique sans restrictions. Votre collection, vos règles."
+                        },
+                        future: {
+                            title: "Votre projet?",
+                            desc: "Ce n'est que le début. Que voulez-vous que je construise pour vous?"
+                        }
+                    },
+                    tagline: "\"Chattez une idée, obtenez un produit\""
+                },
+                cta: {
+                    title: "Prêt à commencer?",
+                    subtitle: "Commencez aujourd'hui avec l'apprentissage, le gain et devenez propriétaire de l'avenir de l'IA",
+                    button: "📧 Envoyez un email à Wendy",
+                    terms: "Gratuit à utiliser • Pas de coûts cachés • Vos données restent vôtres"
+                }
+            }
+        };
+
+        // Language switcher functionality
+        let currentLanguage = 'nl';
+
+        function loadLanguage() {
+            const savedLang = localStorage.getItem('leergeld-language');
+            currentLanguage = savedLang || 'nl';
+            updateLanguage();
+            updateActiveButton();
+        }
+
+        function updateLanguage() {
+            document.documentElement.lang = currentLanguage;
+            
+            // Update all elements with data-i18n attributes
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getTranslation(key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update email subject
+            const emailLink = document.querySelector('a[href^="mailto:"]');
+            if (emailLink && currentLanguage === 'en') {
+                emailLink.href = 'mailto:wendydv1989@gmail.com?subject=I want to join Learn & Earn!';
+            } else if (emailLink && currentLanguage === 'fr') {
+                emailLink.href = 'mailto:wendydv1989@gmail.com?subject=Je veux rejoindre Apprendre & Gagner!';
+            } else if (emailLink) {
+                emailLink.href = 'mailto:wendydv1989@gmail.com?subject=Ik wil meedoen met Leergeld!';
+            }
+
+            // Update page title
+            const titles = {
+                nl: 'Leergeld - Verdien door te leren met Wendy',
+                en: 'Learn & Earn - Earn by learning with Wendy',
+                fr: 'Apprendre & Gagner - Gagnez en apprenant avec Wendy'
+            };
+            document.title = titles[currentLanguage];
+        }
+
+        function getTranslation(key) {
+            const keys = key.split('.');
+            let translation = translations[currentLanguage];
+            
+            for (const k of keys) {
+                if (translation && translation[k]) {
+                    translation = translation[k];
+                } else {
+                    return null;
+                }
+            }
+            
+            return translation;
+        }
+
+        function updateActiveButton() {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === currentLanguage) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('leergeld-language', lang);
+            updateLanguage();
+            updateActiveButton();
+        }
+
+        // Event listeners for language buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchLanguage(btn.dataset.lang);
+                });
+            });
+
+            // Load saved language
+            loadLanguage();
+        });
+
         // Loading screen
         window.addEventListener('load', function() {
             const loading = document.getElementById('loading');
@@ -835,9 +1301,21 @@
             });
         }, 100);
 
-        // Console Easter egg
-        console.log('🚀 Welkom bij Leergeld! Interesse in de technische kant? Join ons op Discord!');
-        console.log('💜 Gebouwd met liefde voor de AI-coöperatie');
+        // Console Easter egg - multilingual
+        const easterEggs = {
+            nl: ['🚀 Welkom bij Leergeld! Interesse in de technische kant? Join ons op Discord!', '💜 Gebouwd met liefde voor de AI-coöperatie'],
+            en: ['🚀 Welcome to Learn & Earn! Interested in the technical side? Join us on Discord!', '💜 Built with love for the AI cooperative'],
+            fr: ['🚀 Bienvenue à Apprendre & Gagner! Intéressé par le côté technique? Rejoignez-nous sur Discord!', '💜 Construit avec amour pour la coopérative IA']
+        };
+
+        function updateConsoleMessages() {
+            console.clear();
+            const messages = easterEggs[currentLanguage] || easterEggs.nl;
+            messages.forEach(msg => console.log(msg));
+        }
+
+        // Update console messages when language changes
+        document.addEventListener('DOMContentLoaded', updateConsoleMessages);
     </script>
 </body>
 </html>
