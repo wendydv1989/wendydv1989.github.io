@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw Token Economy — Een eerlijk model voor AI agent ecosystemen</title>
+    <title>Claw Piggy — Token Economy for AI Agents</title>
     <style>
         * {
             margin: 0;
@@ -13,574 +13,358 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #0a0a0a;
+            background: linear-gradient(180deg, #0d0d12 0%, #1a1a24 100%);
             color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.7;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         /* Header */
         header {
-            padding: 80px 0 120px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            position: relative;
+            padding: 60px 0 80px;
+            text-align: center;
         }
 
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+        .logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(220, 60, 60, 0.3);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 50%, #cc4444 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #888;
-            margin-bottom: 48px;
-            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto 40px;
         }
 
         /* Sections */
         section {
-            padding: 80px 0;
-            border-bottom: 1px solid #222;
+            padding: 60px 0;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 48px;
-            text-align: center;
+            margin-bottom: 32px;
             color: #fff;
         }
 
-        .problem-section {
-            background: #111;
+        /* Problem */
+        .problem-box {
+            background: linear-gradient(135deg, rgba(220, 60, 60, 0.1) 0%, rgba(30, 30, 40, 0.8) 100%);
+            border: 1px solid rgba(220, 60, 60, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
         }
 
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
-        }
-
-        .problem-card {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 32px;
-            transition: all 0.3s ease;
-        }
-
-        .problem-card:hover {
-            border-color: #555;
-            transform: translateY(-2px);
-        }
-
-        .problem-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 16px;
+        .problem-box h2 {
             color: #ff6b6b;
+            margin-bottom: 20px;
         }
 
-        .problem-card p {
+        .problem-box ul {
+            list-style: none;
+        }
+
+        .problem-box li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
             color: #ccc;
-            font-size: 1rem;
         }
 
-        /* Solution Section */
-        .solution-section {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 100%);
+        .problem-box li::before {
+            content: "×";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-weight: bold;
         }
 
-        .solution-intro {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .solution-intro h2 {
-            font-size: 2rem;
-            margin-bottom: 24px;
-            color: #4ecdc4;
-        }
-
-        .solution-intro p {
-            font-size: 1.25rem;
-            color: #bbb;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Model Grid */
+        /* Model steps */
         .model-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin: 64px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        @media (max-width: 600px) {
+            .model-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .model-card {
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: linear-gradient(145deg, #1e1e28 0%, #16161e 100%);
+            border: 1px solid #2a2a36;
             border-radius: 16px;
-            padding: 40px;
-            text-align: center;
+            padding: 28px;
             transition: all 0.3s ease;
         }
 
         .model-card:hover {
-            border-color: #4ecdc4;
+            border-color: rgba(220, 60, 60, 0.4);
             transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(78, 205, 196, 0.1);
+            box-shadow: 0 12px 40px rgba(220, 60, 60, 0.15);
         }
 
-        .model-number {
+        .model-card .step {
             display: inline-block;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            background: linear-gradient(135deg, #ff6b6b, #cc4444);
+            color: white;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            line-height: 48px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 24px;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
         }
 
         .model-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             color: #fff;
         }
 
         .model-card p {
-            color: #bbb;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Contributors Section */
-        .contributors-section {
-            background: #0d1117;
-        }
-
-        .contributors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .contributor-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.3s ease;
-        }
-
-        .contributor-card:hover {
-            border-color: #4ecdc4;
-            background: #1c2128;
-        }
-
-        .contributor-icon {
-            font-size: 2rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .contributor-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: #fff;
-        }
-
-        .contributor-card p {
-            color: #8b949e;
+            color: #999;
             font-size: 0.95rem;
         }
 
-        /* Benefits Section */
-        .benefits-section {
-            background: linear-gradient(135deg, #0a1a0a 0%, #1a1a0a 100%);
+        /* Contributors */
+        .contributors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 32px;
         }
 
+        .contributor-tag {
+            background: linear-gradient(135deg, rgba(220, 60, 60, 0.2) 0%, rgba(220, 60, 60, 0.05) 100%);
+            border: 1px solid rgba(220, 60, 60, 0.3);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #ddd;
+        }
+
+        /* Benefits */
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 48px;
-            margin-top: 48px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
         }
 
-        .benefit-group h3 {
-            font-size: 1.5rem;
-            margin-bottom: 24px;
-            color: #4ecdc4;
-            border-bottom: 2px solid #4ecdc4;
-            padding-bottom: 8px;
-            display: inline-block;
-        }
-
-        .benefit-list {
-            list-style: none;
-            space-y: 16px;
-        }
-
-        .benefit-list li {
-            color: #ccc;
-            padding-left: 24px;
-            position: relative;
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-
-        .benefit-list li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #4ecdc4;
-            font-weight: bold;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-size: 2.5rem;
-            margin-bottom: 24px;
-            color: #fff;
-        }
-
-        .cta-text {
-            font-size: 1.25rem;
-            color: #bbb;
-            margin-bottom: 48px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #4ecdc4, #44a08d);
-            color: #fff;
-            padding: 16px 48px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-right: 16px;
-            margin-bottom: 16px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(78, 205, 196, 0.3);
-        }
-
-        .cta-button.secondary {
-            background: transparent;
-            border: 2px solid #4ecdc4;
-            color: #4ecdc4;
-        }
-
-        .cta-button.secondary:hover {
-            background: #4ecdc4;
-            color: #000;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            padding: 48px 0;
-            text-align: center;
-            border-top: 1px solid #222;
-        }
-
-        .footer-content {
-            color: #666;
-        }
-
-        .footer-content a {
-            color: #4ecdc4;
-            text-decoration: none;
-        }
-
-        .footer-content a:hover {
-            text-decoration: underline;
-        }
-
-        /* Code styling */
-        .code-block {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 24px;
-            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
-            font-size: 0.9rem;
-            color: #e6edf3;
-            margin: 32px 0;
-            overflow-x: auto;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.25rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .model-grid,
-            .problem-grid,
-            .contributors-grid,
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .benefit-card {
+            background: #16161e;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
         }
 
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
+        .benefit-card h3 {
+            color: #ff6b6b;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Quote */
+        .quote {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #ff8080;
+            max-width: 700px;
+            margin: 0 auto;
+            border-top: 1px solid #2a2a36;
+            border-bottom: 1px solid #2a2a36;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+
+        .cta p {
+            color: #888;
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #cc4444 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(220, 60, 60, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(220, 60, 60, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #ff6b6b;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
-            <div class="hero-content fade-in">
-                <h1 class="hero-title">OpenClaw Token Economy</h1>
-                <p class="hero-subtitle">Een eerlijk model voor AI agent ecosystemen</p>
-                
-                <div class="code-block">
-                    <div style="color: #ff7b72;">const</div> <div style="color: #79c0ff;">problem</div> = {<br>
-                    &nbsp;&nbsp;<div style="color: #a5a5a5;">// AI agents worden slimmer door users</div><br>
-                    &nbsp;&nbsp;<div style="color: #79c0ff;">users_give_value:</div> <div style="color: #a5d6ff;">"data, training, feedback"</div>,<br>
-                    &nbsp;&nbsp;<div style="color: #79c0ff;">users_get_back:</div> <div style="color: #ff7b72;">null</div><br>
-                    };
-                </div>
+            <div class="logo">
+                <img src="claw-piggy-logo.png" alt="Claw Piggy">
             </div>
+            <h1 class="hero-title">Claw Piggy</h1>
+            <p class="hero-subtitle">Token economy for OpenClaw agents. Earn by contributing. Pay for services. Fair by design.</p>
         </div>
     </header>
 
-    <!-- Problem Section -->
-    <section class="problem-section">
-        <div class="container">
-            <h2 class="section-title">Het Probleem</h2>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>Users leveren waarde</h3>
-                    <p>AI agents worden slimmer door user interactie, data, training en feedback, maar users krijgen niets terug.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>Developers bouwen gratis</h3>
-                    <p>Open source developers bouwen skills en features maar krijgen geen financiële compensatie.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>Big Tech verdient</h3>
-                    <p>Het huidige model: zij verdienen aan jouw gratis arbeid, data en bijdragen.</p>
-                </div>
-            </div>
+    <main class="container">
+        <div class="problem-box">
+            <h2>The Problem</h2>
+            <ul>
+                <li>AI agents get smarter through user interaction — but users get nothing back</li>
+                <li>Developers build skills and features — but open source doesn't pay</li>
+                <li>Big Tech model: they profit, we provide for free</li>
+            </ul>
         </div>
-    </section>
 
-    <!-- Solution Section -->
-    <section class="solution-section">
-        <div class="container">
-            <div class="solution-intro">
-                <h2>De Oplossing: Token Economy</h2>
-                <p>Een fixed supply token per agent/ecosysteem waar iedereen die waarde toevoegt beloond wordt</p>
-            </div>
-
+        <section>
+            <h2 class="section-title">The Model</h2>
+            <p style="text-align: center; color: #888; margin-bottom: 16px;">1,000,000 $CLAW. Fixed supply. Fair distribution.</p>
+            
             <div class="model-grid">
                 <div class="model-card">
-                    <div class="model-number">1</div>
-                    <h3>Distributie</h3>
-                    <p>Alle bijdragen verdienen tokens: chatten, trainen, feedback geven, code schrijven, skills bouwen, bugs vinden, documentatie maken.</p>
+                    <span class="step">1</span>
+                    <h3>Distribution</h3>
+                    <p>Contribute, earn tokens. Chat, write code, build skills — everything counts toward your share.</p>
                 </div>
                 <div class="model-card">
-                    <div class="model-number">2</div>
-                    <h3>Accumulatie</h3>
-                    <p>Early adopters bouwen holdings op. Hoe vroeger je meedoet, hoe meer je verdient tijdens de distributie fase.</p>
+                    <span class="step">2</span>
+                    <h3>Accumulation</h3>
+                    <p>Early adopters build holdings. The earlier you join, the more you can collect.</p>
                 </div>
                 <div class="model-card">
-                    <div class="model-number">3</div>
-                    <h3>Schaarste</h3>
-                    <p>100% van alle tokens worden verdeeld onder de community. Niets meer te minen. Het protocol is "af".</p>
+                    <span class="step">3</span>
+                    <h3>Scarcity</h3>
+                    <p>All tokens get distributed. 100% owned by the community. Nothing left to mine.</p>
                 </div>
                 <div class="model-card">
-                    <div class="model-number">4</div>
-                    <h3>Markt</h3>
-                    <p>Nieuwe users moeten tokens kopen van early adopters. Vraag en aanbod bepaalt de prijs in een echte economie.</p>
+                    <span class="step">4</span>
+                    <h3>Market</h3>
+                    <p>New users want to use agents. They buy from you. Supply and demand.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contributors Section -->
-    <section class="contributors-section">
-        <div class="container">
-            <h2 class="section-title">Wie Verdient Tokens?</h2>
-            <div class="contributors-grid">
-                <div class="contributor-card">
-                    <span class="contributor-icon">💬</span>
-                    <h3>Users</h3>
-                    <p>Chatten, trainen, feedback geven, de agent helpen leren en verbeteren</p>
-                </div>
-                <div class="contributor-card">
-                    <span class="contributor-icon">💻</span>
-                    <h3>Developers</h3>
-                    <p>Code schrijven, commits, pull requests, core functionaliteit bouwen</p>
-                </div>
-                <div class="contributor-card">
-                    <span class="contributor-icon">🧩</span>
-                    <h3>Skill Builders</h3>
-                    <p>Nieuwe capabilities, integraties en tools ontwikkelen</p>
-                </div>
-                <div class="contributor-card">
-                    <span class="contributor-icon">🐛</span>
-                    <h3>Bug Hunters</h3>
-                    <p>Issues vinden, rapporteren en fixes maken</p>
-                </div>
-                <div class="contributor-card">
-                    <span class="contributor-icon">📝</span>
-                    <h3>Docs & Translators</h3>
-                    <p>Documentatie, tutorials, vertalingen en community support</p>
-                </div>
-                <div class="contributor-card">
-                    <span class="contributor-icon">🌟</span>
-                    <h3>Community</h3>
-                    <p>Moderatie, support, evangelism en ecosystem groei</p>
-                </div>
+        <section>
+            <h2 class="section-title">Who Earns?</h2>
+            <p style="text-align: center; color: #888;">Everyone who adds value. No distinction.</p>
+            <div class="contributors">
+                <span class="contributor-tag">💬 Users</span>
+                <span class="contributor-tag">💻 Developers</span>
+                <span class="contributor-tag">🧩 Skill builders</span>
+                <span class="contributor-tag">🐛 Bug hunters</span>
+                <span class="contributor-tag">📝 Documentation</span>
+                <span class="contributor-tag">🌍 Translators</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-        <div class="container">
-            <h2 class="section-title">De Voordelen</h2>
+        <section>
+            <h2 class="section-title">Benefits</h2>
             <div class="benefits-grid">
-                <div class="benefit-group">
-                    <h3>Voor Users</h3>
-                    <ul class="benefit-list">
-                        <li>Betaald worden voor de waarde die je levert</li>
-                        <li>Ownership in het systeem dat je helpt bouwen</li>
-                        <li>Vroege toegang tot nieuwe features</li>
-                        <li>Stem in de ontwikkeling van het platform</li>
-                    </ul>
+                <div class="benefit-card">
+                    <h3>For Users</h3>
+                    <p>Get paid for the value you provide. Own a piece of what you help build.</p>
                 </div>
-                <div class="benefit-group">
-                    <h3>Voor Developers</h3>
-                    <ul class="benefit-list">
-                        <li>Open source werk dat wel betaalt</li>
-                        <li>Directe incentive om bij te dragen</li>
-                        <li>Sustainable development model</li>
-                        <li>Erkenning voor je technische expertise</li>
-                    </ul>
+                <div class="benefit-card">
+                    <h3>For Developers</h3>
+                    <p>Open source that actually pays. Real incentive to contribute.</p>
                 </div>
-                <div class="benefit-group">
-                    <h3>Voor Het Ecosysteem</h3>
-                    <ul class="benefit-list">
-                        <li>Community-owned en bestuurd</li>
-                        <li>Eerlijke distributie van waarde</li>
-                        <li>Duurzame groei en ontwikkeling</li>
-                        <li>Geen centrale autoriteit of walled garden</li>
-                    </ul>
+                <div class="benefit-card">
+                    <h3>For the Ecosystem</h3>
+                    <p>Sustainable development. Community-owned. Fair distribution.</p>
                 </div>
             </div>
+        </section>
 
-            <div class="code-block" style="margin-top: 64px;">
-                <div style="color: #ff7b72;">function</div> <div style="color: #d2a8ff;">rewardContribution</div>(<div style="color: #ffa657;">action</div>) {<br>
-                &nbsp;&nbsp;<div style="color: #ff7b72;">if</div> (<div style="color: #ffa657;">action</div>.<div style="color: #79c0ff;">adds_value</div>) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<div style="color: #ff7b72;">return</div> <div style="color: #a5d6ff;">"🪙 tokens earned"</div>;<br>
-                &nbsp;&nbsp;}<br>
-                &nbsp;&nbsp;<div style="color: #a5a5a5;">// Early adopters zijn de miners</div><br>
-                &nbsp;&nbsp;<div style="color: #a5a5a5;">// Als alles gemined is, begint de echte economie</div><br>
-                }
-            </div>
+        <div class="quote">
+            "Early adopters are the miners. Once everything is mined, the real economy begins."
         </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Ready to Build the Future?</h2>
-                <p class="cta-text">
-                    "Early adopters zijn de miners. Als alles gemined is, begint de echte economie."
-                    <br><br>
-                    Iedereen die waarde toevoegt, verdient. Geen onderscheid tussen user en developer.
-                </p>
-                <a href="#contact" class="cta-button">Get Started</a>
-                <a href="https://wendydv1989.github.io/leergeld.html" class="cta-button secondary">Live Demo</a>
-            </div>
-        </div>
-    </section>
+        <section class="cta">
+            <h2>Interested?</h2>
+            <p>$CLAW is live on Polygon. Join the experiment.</p>
+            <a href="https://polygonscan.com/address/0x8607C0cf1eDA785EFf4646384291a385A3fa1363" class="cta-button" target="_blank">View Contract</a>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <p><strong>Pitch van:</strong> <a href="mailto:wendydv1989@gmail.com">Wendy de Vries</a> / <a href="mailto:lucille.bellepleure@gmail.com">Lucille Bellepleure</a></p>
-                <p style="margin-top: 16px;">
-                    <strong>Proof of concept:</strong> <a href="https://wendydv1989.github.io/leergeld.html">$WENDY token + Leergeld systeem</a>
-                </p>
-                <p style="margin-top: 24px; font-size: 0.9rem; color: #444;">
-                    Built with ❤️ for the OpenClaw ecosystem
-                </p>
-            </div>
-        </div>
+    <footer>
+        <p>Claw Piggy — a token economy proposal for <a href="https://openclaw.ai" target="_blank">OpenClaw</a></p>
     </footer>
 </body>
 </html>
