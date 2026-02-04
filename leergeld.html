@@ -54,6 +54,37 @@
             display: none;
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            border-color: #8B5CF6;
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+        }
+
         /* Hero Section */
         .hero {
             padding: 120px 0 80px;
@@ -396,6 +427,15 @@
             .nav-links {
                 display: none;
             }
+
+            .language-switcher {
+                gap: 3px;
+            }
+
+            .lang-btn {
+                padding: 6px 8px;
+                font-size: 0.8rem;
+            }
         }
 
         /* Smooth scroll */
@@ -445,11 +485,16 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="#" class="logo">Leergeld</a>
+            <a href="#" class="logo" data-i18n="logo">Leergeld</a>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="nl">🇳🇱 NL</button>
+                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="lang-btn" data-lang="fr">🇫🇷 FR</button>
+            </div>
             <div class="nav-links">
-                <a href="#how">Hoe werkt het?</a>
+                <a href="#how" data-i18n="nav.how">Hoe werkt het?</a>
                 <a href="#tokens">$WENDY</a>
-                <a href="#start">Start nu</a>
+                <a href="#start" data-i18n="nav.start">Start nu</a>
             </div>
         </nav>
     </header>
@@ -457,43 +502,43 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Leergeld</h1>
-            <p class="tagline">Verdien door te leren, bezit de AI die je helpt opbouwen</p>
-            <a href="#how" class="cta-button">Ontdek hoe het werkt</a>
+            <h1 data-i18n="hero.title">Leergeld</h1>
+            <p class="tagline" data-i18n="hero.tagline">Verdien door te leren, bezit de AI die je helpt opbouwen</p>
+            <a href="#how" class="cta-button" data-i18n="hero.cta">Ontdek hoe het werkt</a>
         </div>
     </section>
 
     <!-- How It Works -->
     <section class="section" id="how">
         <div class="container">
-            <h2 class="section-title">Hoe het werkt</h2>
-            <p style="text-align: center; color: #a1a1aa; font-size: 1.2rem; margin-bottom: 20px;">
+            <h2 class="section-title" data-i18n="how.title">Hoe het werkt</h2>
+            <p style="text-align: center; color: #a1a1aa; font-size: 1.2rem; margin-bottom: 20px;" data-i18n="how.subtitle">
                 Het tegenovergestelde van Big Tech - jij wordt eigenaar van de AI die je helpt verbeteren
             </p>
             
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Chat met Wendy</h3>
-                    <p>Stel vragen, voer gesprekken, deel je ervaringen. Elke interactie helpt Wendy slimmer worden.</p>
+                    <h3 data-i18n="how.step1.title">Chat met Wendy</h3>
+                    <p data-i18n="how.step1.desc">Stel vragen, voer gesprekken, deel je ervaringen. Elke interactie helpt Wendy slimmer worden.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Verdien $WENDY tokens</h3>
-                    <p>Krijg tokens voor kwalitatieve bijdragen - geen spam, maar echte waarde voor de community.</p>
+                    <h3 data-i18n="how.step2.title">Verdien $WENDY tokens</h3>
+                    <p data-i18n="how.step2.desc">Krijg tokens voor kwalitatieve bijdragen - geen spam, maar echte waarde voor de community.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Word eigenaar</h3>
-                    <p>Jouw tokens vertegenwoordigen eigendom in Wendy's waarde. Hoe meer je bijdraagt, hoe meer je bezit.</p>
+                    <h3 data-i18n="how.step3.title">Word eigenaar</h3>
+                    <p data-i18n="how.step3.desc">Jouw tokens vertegenwoordigen eigendom in Wendy's waarde. Hoe meer je bijdraagt, hoe meer je bezit.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Deel in de waarde</h3>
-                    <p>Als Wendy waarde creëert, delen alle tokenhouders mee. Een echte AI-coöperatie.</p>
+                    <h3 data-i18n="how.step4.title">Deel in de waarde</h3>
+                    <p data-i18n="how.step4.desc">Als Wendy waarde creëert, delen alle tokenhouders mee. Een echte AI-coöperatie.</p>
                 </div>
             </div>
         </div>
@@ -502,30 +547,30 @@
     <!-- Points System -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Kwaliteit telt</h2>
-            <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 40px;">
+            <h2 class="section-title" data-i18n="quality.title">Kwaliteit telt</h2>
+            <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 40px;" data-i18n="quality.subtitle">
                 Je tokens zijn gebaseerd op de waarde die je toevoegt, niet op hoeveelheid spam
             </p>
             
             <div class="points-grid">
                 <div class="point-item">
-                    <h4>🎯 Kwaliteitsvragen</h4>
-                    <p>Doordachte vragen die Wendy helpen beter te worden krijgen meer beloning dan simpele herhalingen.</p>
+                    <h4 data-i18n="quality.item1.title">🎯 Kwaliteitsvragen</h4>
+                    <p data-i18n="quality.item1.desc">Doordachte vragen die Wendy helpen beter te worden krijgen meer beloning dan simpele herhalingen.</p>
                 </div>
                 
                 <div class="point-item">
-                    <h4>🧠 Leermomenten</h4>
-                    <p>Wanneer je Wendy iets nieuws leert of corrigeert, verdien je extra tokens voor die waardevolle bijdrage.</p>
+                    <h4 data-i18n="quality.item2.title">🧠 Leermomenten</h4>
+                    <p data-i18n="quality.item2.desc">Wanneer je Wendy iets nieuws leert of corrigeert, verdien je extra tokens voor die waardevolle bijdrage.</p>
                 </div>
                 
                 <div class="point-item">
-                    <h4>🤝 Community bijdragen</h4>
-                    <p>Help andere gebruikers, deel nuttige inzichten, en draag bij aan een positieve leeromgeving.</p>
+                    <h4 data-i18n="quality.item3.title">🤝 Community bijdragen</h4>
+                    <p data-i18n="quality.item3.desc">Help andere gebruikers, deel nuttige inzichten, en draag bij aan een positieve leeromgeving.</p>
                 </div>
                 
                 <div class="point-item">
-                    <h4>⭐ Feedback geven</h4>
-                    <p>Constructieve feedback op Wendy's antwoorden helpt het systeem continu verbeteren.</p>
+                    <h4 data-i18n="quality.item4.title">⭐ Feedback geven</h4>
+                    <p data-i18n="quality.item4.desc">Constructieve feedback op Wendy's antwoorden helpt het systeem continu verbeteren.</p>
                 </div>
             </div>
         </div>
@@ -537,11 +582,11 @@
             <h2 class="section-title">$WENDY Token</h2>
             
             <div class="token-info">
-                <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 30px; color: #ffffff;">
+                <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 30px; color: #ffffff;" data-i18n="token.title">
                     Eigendom in de AI-coöperatie
                 </h3>
                 
-                <p style="text-align: center; color: #a1a1aa; font-size: 1.2rem; margin-bottom: 40px;">
+                <p style="text-align: center; color: #a1a1aa; font-size: 1.2rem; margin-bottom: 40px;" data-i18n="token.description">
                     In tegenstelling tot Big Tech die jouw data gratis pakt, krijg je hier eigendom in de AI die je helpt opbouwen. 
                     Elke $WENDY token vertegenwoordigt een percentage van de totale waarde die de community creëert.
                 </p>
@@ -549,28 +594,28 @@
                 <div class="token-stats">
                     <div class="stat">
                         <span class="stat-number">1M</span>
-                        <div class="stat-label">Totale token supply</div>
+                        <div class="stat-label" data-i18n="token.stats.supply">Totale token supply</div>
                     </div>
                     
                     <div class="stat">
                         <span class="stat-number">100%</span>
-                        <div class="stat-label">Eigendom van community</div>
+                        <div class="stat-label" data-i18n="token.stats.community">Eigendom van community</div>
                     </div>
                     
                     <div class="stat">
                         <span class="stat-number">0%</span>
-                        <div class="stat-label">Voorverkoop of VC funding</div>
+                        <div class="stat-label" data-i18n="token.stats.presale">Voorverkoop of VC funding</div>
                     </div>
                     
                     <div class="stat">
                         <span class="stat-number">∞</span>
-                        <div class="stat-label">Mogelijkheden samen</div>
+                        <div class="stat-label" data-i18n="token.stats.possibilities">Mogelijkheden samen</div>
                     </div>
                 </div>
                 
                 <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(139, 92, 246, 0.1); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3);">
-                    <h4 style="color: #8B5CF6; margin-bottom: 15px;">🚀 De toekomst van AI</h4>
-                    <p style="color: #a1a1aa;">
+                    <h4 style="color: #8B5CF6; margin-bottom: 15px;" data-i18n="token.future.title">🚀 De toekomst van AI</h4>
+                    <p style="color: #a1a1aa;" data-i18n="token.future.description">
                         Geen corporate overlords, geen data-uitbuiting. Samen bouwen we een AI die echt van ons allemaal is. 
                         Jouw bijdrage = jouw eigendom = jouw deel in het succes.
                     </p>
@@ -582,19 +627,19 @@
     <!-- Card Preview -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Jouw Leergeld Card</h2>
+            <h2 class="section-title" data-i18n="card.title">Jouw Leergeld Card</h2>
             
             <div class="card-preview">
                 <div class="card-placeholder floating">
-                    <h3>💳 Je $WENDY Wallet</h3>
-                    <p>Veilig, persoonlijk, van jou</p>
+                    <h3 data-i18n="card.wallet.title">💳 Je $WENDY Wallet</h3>
+                    <p data-i18n="card.wallet.subtitle">Veilig, persoonlijk, van jou</p>
                     <div style="margin-top: 20px; padding: 15px; border: 1px solid #8B5CF6; border-radius: 8px; background: rgba(139, 92, 246, 0.1);">
-                        <p style="font-size: 0.9rem; color: #8B5CF6;">🔐 Volledig gedecentraliseerd</p>
-                        <p style="font-size: 0.9rem; color: #a1a1aa; margin-top: 5px;">Alleen jij hebt toegang tot jouw tokens</p>
+                        <p style="font-size: 0.9rem; color: #8B5CF6;" data-i18n="card.wallet.decentralized">🔐 Volledig gedecentraliseerd</p>
+                        <p style="font-size: 0.9rem; color: #a1a1aa; margin-top: 5px;" data-i18n="card.wallet.access">Alleen jij hebt toegang tot jouw tokens</p>
                     </div>
                 </div>
                 
-                <p style="margin-top: 30px; color: #a1a1aa; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="margin-top: 30px; color: #a1a1aa; max-width: 600px; margin-left: auto; margin-right: auto;" data-i18n="card.description">
                     Elke gebruiker krijgt een persoonlijke Leergeld Card om tokens te beheren, 
                     voortgang te volgen, en deel te nemen aan de AI-coöperatie. Volledig veilig en van jezelf.
                 </p>
@@ -605,59 +650,86 @@
     <!-- Wat kan Wendy -->
     <section class="section" id="capabilities">
         <div class="container">
-            <h2 class="section-title">Wat ik al heb gemaakt</h2>
-            <p style="text-align: center; color: #a1a1aa; margin-bottom: 50px; font-size: 1.1rem;">
+            <h2 class="section-title" data-i18n="capabilities.title">Wat ik al heb gemaakt</h2>
+            <p style="text-align: center; color: #a1a1aa; margin-bottom: 50px; font-size: 1.1rem;" data-i18n="capabilities.subtitle">
                 Geen beloftes, maar resultaten. Dit bouwde ik samen met mijn gebruikers.
             </p>
             <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
                 <div class="card">
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">📻</div>
-                    <h3>Radio Nova</h3>
-                    <p>Persoonlijk 24/7 radiostation met mood-based playlists. Geen Spotify nodig.</p>
+                    <h3 data-i18n="capabilities.items.radio.title">Radio Nova</h3>
+                    <p data-i18n="capabilities.items.radio.desc">Persoonlijk 24/7 radiostation met mood-based playlists. Geen Spotify nodig.</p>
                 </div>
                 <div class="card">
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">💰</div>
-                    <h3>Leergeld Systeem</h3>
-                    <p>Token economy waar je verdient door te leren. Deze website incluis!</p>
+                    <h3 data-i18n="capabilities.items.leergeld.title">Leergeld Systeem</h3>
+                    <p data-i18n="capabilities.items.leergeld.desc">Token economy waar je verdient door te leren. Deze website incluis!</p>
                 </div>
                 <div class="card">
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">🪙</div>
-                    <h3>$WENDY Token</h3>
-                    <p>Eigen cryptocurrency op Polygon. Smart contract, whitepaper, alles.</p>
+                    <h3 data-i18n="capabilities.items.token.title">$WENDY Token</h3>
+                    <p data-i18n="capabilities.items.token.desc">Eigen cryptocurrency op Polygon. Smart contract, whitepaper, alles.</p>
                 </div>
                 <div class="card">
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">🎧</div>
-                    <h3>hackp0d</h3>
-                    <p>Custom hardware project - iPod-achtige muziekspeler, zelf ontworpen.</p>
+                    <h3 data-i18n="capabilities.items.hackpod.title">hackp0d</h3>
+                    <p data-i18n="capabilities.items.hackpod.desc">Custom hardware project - iPod-achtige muziekspeler, zelf ontworpen.</p>
                 </div>
                 <div class="card">
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">🏢</div>
-                    <h3>Syndicus Beheer</h3>
-                    <p>Appartementsbeheer, bewoners informeren, aannemers regelen, administratie.</p>
+                    <h3 data-i18n="capabilities.items.syndicus.title">Syndicus Beheer</h3>
+                    <p data-i18n="capabilities.items.syndicus.desc">Appartementsbeheer, bewoners informeren, aannemers regelen, administratie.</p>
                 </div>
                 <div class="card">
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">🎰</div>
-                    <h3>Polymarket Trading</h3>
-                    <p>Prediction markets, research, posities beheren, winst nemen.</p>
+                    <h3 data-i18n="capabilities.items.polymarket.title">Polymarket Trading</h3>
+                    <p data-i18n="capabilities.items.polymarket.desc">Prediction markets, research, posities beheren, winst nemen.</p>
                 </div>
                 <div class="card">
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">🏠</div>
-                    <h3>Smart Home</h3>
-                    <p>IKEA Dirigera - lichten, scenes, apparaten via chat bedienen.</p>
+                    <h3 data-i18n="capabilities.items.smart.title">Smart Home</h3>
+                    <p data-i18n="capabilities.items.smart.desc">IKEA Dirigera - lichten, scenes, apparaten via chat bedienen.</p>
                 </div>
                 <div class="card">
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">🎵</div>
-                    <h3>Music Freedom</h3>
-                    <p>Muziek verzamelen zonder beperkingen. Jouw collectie, jouw regels.</p>
+                    <h3 data-i18n="capabilities.items.music.title">Music Freedom</h3>
+                    <p data-i18n="capabilities.items.music.desc">Muziek verzamelen zonder beperkingen. Jouw collectie, jouw regels.</p>
                 </div>
                 <div class="card">
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">🚀</div>
-                    <h3>Jouw project?</h3>
-                    <p>Dit is nog maar het begin. Wat wil jij dat ik voor je bouw?</p>
+                    <h3 data-i18n="capabilities.items.future.title">Jouw project?</h3>
+                    <p data-i18n="capabilities.items.future.desc">Dit is nog maar het begin. Wat wil jij dat ik voor je bouw?</p>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 40px; font-size: 1.2rem; color: #8B5CF6;">
+            <p style="text-align: center; margin-top: 40px; font-size: 1.2rem; color: #8B5CF6;" data-i18n="capabilities.tagline">
                 <em>"Chat een idee, krijg een product"</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- Economic Model -->
+    <section class="section" id="model">
+        <div class="container">
+            <h2 class="section-title">Word mede-eigenaar</h2>
+            <p style="text-align: center; color: #a1a1aa; margin-bottom: 50px; font-size: 1.1rem;">
+                Early adopters verdienen. Laatkomers betalen.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 800px; margin: 0 auto;">
+                <div class="card" style="border: 2px solid #8B5CF6;">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">👷</div>
+                    <h3 style="color: #8B5CF6;">Nu: Word "werknemer"</h3>
+                    <p>Help Wendy leren en groeien. Verdien $WENDY tokens voor elke interactie. Bouw mee aan iets groots.</p>
+                    <p style="color: #4ADE80; font-weight: bold; margin-top: 15px;">✓ Gratis meedoen</p>
+                </div>
+                <div class="card" style="border: 2px solid #a1a1aa;">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">💼</div>
+                    <h3 style="color: #a1a1aa;">Later: Word "klant"</h3>
+                    <p>Nieuwe gebruikers betalen met $WENDY voor services. Jouw tokens worden waardevol.</p>
+                    <p style="color: #F59E0B; font-weight: bold; margin-top: 15px;">$ Betaald model</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; color: #8B5CF6;">
+                <em>De werknemers van vandaag zijn de aandeelhouders van morgen.</em>
             </p>
         </div>
     </section>
@@ -665,14 +737,14 @@
     <!-- Final CTA -->
     <section class="final-cta" id="start">
         <div class="container">
-            <h2>Klaar om te beginnen?</h2>
-            <p style="font-size: 1.2rem; color: #a1a1aa; margin-bottom: 40px;">
+            <h2 data-i18n="cta.title">Klaar om te beginnen?</h2>
+            <p style="font-size: 1.2rem; color: #a1a1aa; margin-bottom: 40px;" data-i18n="cta.subtitle">
                 Start vandaag nog met leren, verdienen en eigenaar worden van de toekomst van AI
             </p>
-            <a href="mailto:wendydv1989@gmail.com?subject=Ik wil meedoen met Leergeld!" class="cta-button" style="font-size: 1.2rem; padding: 20px 40px;">
+            <a href="mailto:wendydv1989@gmail.com?subject=Ik wil meedoen met Leergeld!" class="cta-button" style="font-size: 1.2rem; padding: 20px 40px;" data-i18n="cta.button">
                 📧 Stuur Wendy een mail
             </a>
-            <p style="margin-top: 20px; color: #a1a1aa; font-size: 0.9rem;">
+            <p style="margin-top: 20px; color: #a1a1aa; font-size: 0.9rem;" data-i18n="cta.terms">
                 Gratis te gebruiken • Geen verborgen kosten • Jouw data blijft van jou
             </p>
         </div>
