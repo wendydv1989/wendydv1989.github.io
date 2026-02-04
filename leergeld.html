@@ -707,6 +707,36 @@
         </div>
     </section>
 
+    <!-- Economic Model -->
+    <section class="section" id="model">
+        <div class="container">
+            <h2 class="section-title">Eerlijk door design</h2>
+            <p style="text-align: center; color: #a1a1aa; margin-bottom: 50px; font-size: 1.1rem;">
+                Geen free riders. Geen uitbuiting. Je krijgt wat je geeft.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
+                <div class="card">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">💬</div>
+                    <h3>Help Wendy leren</h3>
+                    <p>Elke interactie maakt Wendy slimmer. Chat, stel vragen, geef feedback - en verdien $WENDY tokens.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🛠️</div>
+                    <h3>Gebruik haar skills</h3>
+                    <p>Websites, automatisering, research - betaal met de tokens die je verdiende. Of koop ze van anderen.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">📈</div>
+                    <h3>Early adopter voordeel</h3>
+                    <p>Vroeg meedoen = meer verdienen. Laatkomers kopen tokens van jou. Wie bouwt, profiteert.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 1rem; color: #666;">
+                Het klassieke seeders/leechers probleem - opgelost met een eerlijk economisch model.
+            </p>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="final-cta" id="start">
         <div class="container">
@@ -977,13 +1007,13 @@
                 }
             },
             fr: {
-                logo: "Enseigne, Utilise et Gagne",
+                logo: "Apprendre & Gagner",
                 nav: {
                     how: "Comment ça marche",
                     start: "Commencer"
                 },
                 hero: {
-                    title: "Enseigne, Utilise et Gagne",
+                    title: "Apprendre & Gagner",
                     tagline: "Gagnez en apprenant, possédez l'IA que vous aidez à construire",
                     cta: "Découvrez comment ça marche"
                 },
@@ -1042,14 +1072,14 @@
                     }
                 },
                 card: {
-                    title: "Votre Carte Enseigne, Utilise et Gagne",
+                    title: "Votre Carte Apprendre & Gagner",
                     wallet: {
                         title: "💳 Votre Portefeuille $WENDY",
                         subtitle: "Sûr, personnel, à vous",
                         decentralized: "🔐 Entièrement décentralisé",
                         access: "Vous seul avez accès à vos tokens"
                     },
-                    description: "Chaque utilisateur reçoit une Carte Enseigne, Utilise et Gagne personnelle pour gérer les tokens, suivre les progrès, et participer à la coopérative IA. Complètement sûr et à vous."
+                    description: "Chaque utilisateur reçoit une Carte Apprendre & Gagner personnelle pour gérer les tokens, suivre les progrès, et participer à la coopérative IA. Complètement sûr et à vous."
                 },
                 capabilities: {
                     title: "Ce que j'ai déjà construit",
@@ -1060,7 +1090,7 @@
                             desc: "Station de radio personnelle 24/7 avec des playlists basées sur l'humeur. Pas besoin de Spotify."
                         },
                         leergeld: {
-                            title: "Système Enseigne, Utilise et Gagne",
+                            title: "Système Apprendre & Gagner",
                             desc: "Économie de tokens où vous gagnez en apprenant. Ce site web inclus!"
                         },
                         token: {
@@ -1130,7 +1160,7 @@
             if (emailLink && currentLanguage === 'en') {
                 emailLink.href = 'mailto:wendydv1989@gmail.com?subject=I want to join Teach, Use and Earn!';
             } else if (emailLink && currentLanguage === 'fr') {
-                emailLink.href = 'mailto:wendydv1989@gmail.com?subject=Je veux rejoindre Enseigne, Utilise et Gagne!';
+                emailLink.href = 'mailto:wendydv1989@gmail.com?subject=Je veux rejoindre Apprendre & Gagner!';
             } else if (emailLink) {
                 emailLink.href = 'mailto:wendydv1989@gmail.com?subject=Ik wil meedoen met Leergeld!';
             }
@@ -1139,7 +1169,7 @@
             const titles = {
                 nl: 'Leergeld - Verdien door te leren met Wendy',
                 en: 'Teach, Use and Earn - Earn by learning with Wendy',
-                fr: 'Enseigne, Utilise et Gagne - Gagnez en apprenant avec Wendy'
+                fr: 'Apprendre & Gagner - Gagnez en apprenant avec Wendy'
             };
             document.title = titles[currentLanguage];
         }
@@ -1275,7 +1305,7 @@
         const easterEggs = {
             nl: ['🚀 Welkom bij Leergeld! Interesse in de technische kant? Join ons op Discord!', '💜 Gebouwd met liefde voor de AI-coöperatie'],
             en: ['🚀 Welcome to Teach, Use and Earn! Interested in the technical side? Join us on Discord!', '💜 Built with love for the AI cooperative'],
-            fr: ['🚀 Bienvenue à Enseigne, Utilise et Gagne! Intéressé par le côté technique? Rejoignez-nous sur Discord!', '💜 Construit avec amour pour la coopérative IA']
+            fr: ['🚀 Bienvenue à Apprendre & Gagner! Intéressé par le côté technique? Rejoignez-nous sur Discord!', '💜 Construit avec amour pour la coopérative IA']
         };
 
         function updateConsoleMessages() {
