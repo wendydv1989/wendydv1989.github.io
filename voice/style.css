@@ -1,0 +1,316 @@
+/* Her-inspired Voice Assistant UI */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24, #f39c12);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #888;
+    letter-spacing: 0.05em;
+}
+
+.orb-container {
+    position: relative;
+    margin: 4rem 0;
+}
+
+.orb {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #ee5a24, #2c3e50);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 0 50px rgba(255, 107, 107, 0.3),
+        inset 0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+.inner-orb {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.3), transparent 70%);
+}
+
+.pulse-ring {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 107, 107, 0.5);
+    opacity: 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Animation states */
+.orb.listening {
+    box-shadow: 
+        0 0 100px rgba(52, 152, 219, 0.6),
+        inset 0 0 50px rgba(255, 255, 255, 0.2);
+    background: radial-gradient(circle at 30% 30%, #3498db, #2980b9, #1abc9c);
+}
+
+.orb.listening .pulse-ring {
+    border-color: rgba(52, 152, 219, 0.8);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.orb.thinking {
+    box-shadow: 
+        0 0 100px rgba(155, 89, 182, 0.6),
+        inset 0 0 50px rgba(255, 255, 255, 0.2);
+    background: radial-gradient(circle at 30% 30%, #9b59b6, #8e44ad, #663399);
+}
+
+.orb.thinking .pulse-ring {
+    border-color: rgba(155, 89, 182, 0.8);
+    animation: pulse 0.8s ease-in-out infinite;
+}
+
+.orb.speaking {
+    box-shadow: 
+        0 0 100px rgba(46, 204, 113, 0.6),
+        inset 0 0 50px rgba(255, 255, 255, 0.2);
+    background: radial-gradient(circle at 30% 30%, #2ecc71, #27ae60, #16a085);
+}
+
+.orb.speaking .pulse-ring {
+    border-color: rgba(46, 204, 113, 0.8);
+    animation: speak 0.3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+}
+
+@keyframes speak {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+.status {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #ccc;
+    margin-bottom: 3rem;
+    min-height: 1.5rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.control-btn {
+    padding: 0.8rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+.control-btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.conversation {
+    max-width: 600px;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 2rem;
+}
+
+.message {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.message.user {
+    background: rgba(52, 152, 219, 0.2);
+    border-left: 3px solid #3498db;
+    margin-left: 2rem;
+}
+
+.message.assistant {
+    background: rgba(46, 204, 113, 0.2);
+    border-left: 3px solid #2ecc71;
+    margin-right: 2rem;
+}
+
+.settings {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    transition: right 0.3s ease;
+    z-index: 100;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settings.open {
+    right: 0;
+}
+
+.setting-group {
+    margin-bottom: 1.5rem;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.setting-group input {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.setting-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.settings-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    z-index: 101;
+}
+
+.settings-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .orb {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .settings {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        width: 200px;
+    }
+}

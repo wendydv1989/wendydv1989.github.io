@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wendy - Voice Assistant</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Wendy</h1>
+            <p class="subtitle">Your Voice Assistant</p>
+        </div>
+        
+        <div class="orb-container">
+            <div class="orb" id="orb">
+                <div class="inner-orb"></div>
+                <div class="pulse-ring"></div>
+            </div>
+        </div>
+        
+        <div class="status" id="status">
+            Say "Wendy" to wake me up
+        </div>
+        
+        <div class="controls">
+            <button id="toggleButton" class="control-btn">
+                <span id="buttonText">Start Listening</span>
+            </button>
+            <button id="muteButton" class="control-btn secondary">
+                <span id="muteText">🔊</span>
+            </button>
+        </div>
+        
+        <div class="conversation" id="conversation">
+            <!-- Conversation history will appear here -->
+        </div>
+        
+        <div class="settings" id="settings">
+            <div class="setting-group">
+                <label>OpenAI API Key:</label>
+                <input type="password" id="openaiKey" placeholder="sk-...">
+            </div>
+            <div class="setting-group">
+                <label>ElevenLabs API Key:</label>
+                <input type="password" id="elevenlabsKey" placeholder="Optional - will fallback to OpenAI TTS">
+            </div>
+            <button id="saveSettings" class="control-btn">Save Settings</button>
+        </div>
+        
+        <button id="settingsToggle" class="settings-toggle">⚙️</button>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
