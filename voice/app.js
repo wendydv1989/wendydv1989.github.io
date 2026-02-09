@@ -34,7 +34,7 @@ class WendyVoiceAssistant {
         this.toggleButton = document.getElementById('toggleButton');
         this.muteButton = document.getElementById('muteButton');
         this.conversation = document.getElementById('conversation');
-        this.settings = document.getElementById('settings');
+        this.settingsPanel = document.getElementById('settings');
         this.settingsToggle = document.getElementById('settingsToggle');
         this.openaiKeyInput = document.getElementById('openaiKey');
         this.elevenlabsKeyInput = document.getElementById('elevenlabsKey');
@@ -67,7 +67,7 @@ class WendyVoiceAssistant {
     }
     
     toggleSettings() {
-        this.settings.classList.toggle('open');
+        this.settingsPanel.classList.toggle('open');
     }
     
     toggleMute() {
