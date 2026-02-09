@@ -1,4 +1,4 @@
-const WENDY_VERSION = "1.0.1";
+const WENDY_VERSION = "1.0.2";
 // Wendy Voice Assistant PWA
 class WendyVoiceAssistant {
     constructor() {
