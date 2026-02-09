@@ -1,11 +1,10 @@
-const WENDY_VERSION = "1.0.3";
+const WENDY_VERSION = "1.0.4";
 // Wendy Voice Assistant PWA
 class WendyVoiceAssistant {
     constructor() {
         this.isListening = false;
         this.isProcessing = false;
         this.isMuted = false;
-        this.isWakeWordListening = true;
         this.conversationHistory = [];
         this.settings = {
             openaiKey: '',
@@ -32,6 +31,9 @@ class WendyVoiceAssistant {
         // Display version
         document.getElementById('versionNum').textContent = WENDY_VERSION;
     }
+    
+    initializeElements() {
+        this.orb = document.getElementById('orb');
         this.status = document.getElementById('status');
         this.toggleButton = document.getElementById('toggleButton');
         this.muteButton = document.getElementById('muteButton');
