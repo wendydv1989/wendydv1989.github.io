@@ -1,10 +1,11 @@
-const WENDY_VERSION = "1.0.2";
+const WENDY_VERSION = "1.0.3";
 // Wendy Voice Assistant PWA
 class WendyVoiceAssistant {
     constructor() {
         this.isListening = false;
         this.isProcessing = false;
         this.isMuted = false;
+        this.isWakeWordListening = true;
         this.conversationHistory = [];
         this.settings = {
             openaiKey: '',
@@ -26,12 +27,11 @@ class WendyVoiceAssistant {
         // Register service worker for PWA
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
-        document.getElementById('versionNum').textContent = WENDY_VERSION;
         }
+        
+        // Display version
+        document.getElementById('versionNum').textContent = WENDY_VERSION;
     }
-    
-    initializeElements() {
-        this.orb = document.getElementById('orb');
         this.status = document.getElementById('status');
         this.toggleButton = document.getElementById('toggleButton');
         this.muteButton = document.getElementById('muteButton');
